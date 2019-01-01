@@ -25,7 +25,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "./public/notes.html"))
+    res.sendFile(path.join(__dirname, "/public/notes.html"))
 });
 
 app.get("/api/notes", function(req, res) {
@@ -34,8 +34,8 @@ app.get("/api/notes", function(req, res) {
 
 app.post("/api/notes", function(req, res) {
     res.sendFile(path.resolve("./db/db.json"))
-    // console.log(req.body)
-    // writeNote(req.body);
+    console.log(req.body)
+    writeNote(req.body);
 });
 
 app.get("/api/notes/:id", function(req, res) {
@@ -46,24 +46,23 @@ app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
 
-function writeNote() {
+// function writeNote() {
     
-}
-
-// function writeNote(note){
-//     fs.readFile('./db/db.json', 'utf8', (err, data) => {
-//         if (err) throw err;
-//         let dbArray = JSON.parse(data);
-//         console.log(typeof data);
-//         dbArray.push(note);
-//         console.log(dbArray);
-//         fs.writeFile('./db/db.json', JSON.stringify(dbArray), (err, data) => {
-//             if (err) throw err;
-//         })
-//     });
 // }
 
-// get all buttons working, for new note, save, delete, etc
+function writeNote(note){
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) throw err;
+        let dbArray = JSON.parse(data);
+        console.log(typeof data);
+        dbArray.push(note);
+        console.log(dbArray);
+        fs.writeFile('./db/db.json', JSON.stringify(dbArray), (err, data) => {
+            if (err) throw err;
+        })
+    });
+}
+
 // find a way to assign a unique id to each note in order to search for and delete
-// get api/notes displays all notes
-// post api/notes when new note is saved, it should be returned to the client somehow
+    // id of last piece of data and add 1
+// post api/notes when new note is saved, resend new updated db.json file to the page in order to refresh the note list on the left side of the page
