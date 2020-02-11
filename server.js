@@ -52,5 +52,10 @@ function writeNote(note){
         fs.writeFile('./db/db.json', JSON.stringify(dbArray), (err, data) => {
             if (err) throw err;
         })
-      });
+    });
 }
+
+// get all buttons working, for new note, save, delete, etc
+// find a way to assign a unique id to each note in order to search for and delete
+// get api/notes displays all notes
+// post api/notes when new note is saved, it should be returned to the client somehow
