@@ -46,8 +46,10 @@ app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 });
 
+function writeNote() {
+    
+}
 
-  
 // function writeNote(note){
 //     fs.readFile('./db/db.json', 'utf8', (err, data) => {
 //         if (err) throw err;
