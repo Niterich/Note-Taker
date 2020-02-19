@@ -2,7 +2,7 @@
 
 A note taking app capeable of writing, storing and deleting notes.
 
-Deployed app: https://guarded-lowlands-27072.herokuapp.com/
+Deployed app: https://take-some-notes.herokuapp.com/
 
 Technologies used: Javascript, Node, Express
 
